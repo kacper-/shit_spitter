@@ -8,40 +8,36 @@ public class DirectedGraph {
     public void addConnection(String word1, String word2) {
         Map<String, Integer> map = dictionary.get(word1);
         if (map == null) {
-            dictionary.put(word1, Map.of(word2, 1));
-        } else {
-            if (map.containsKey(word2))
-                map.compute(word2, (k, v) -> v + 1);
-            else
-                map.put(word2, 1);
+            map = new HashMap<>();
+            map.put(word2, 1);
+            dictionary.put(word1, map);
         }
+        else
+            map.merge(word2, 1, Integer::sum);
     }
 
     public int getCount(String word1) {
         Map<String, Integer> map = dictionary.get(word1);
-        if (map == null) {
+        if (map == null)
             return 0;
-        } else {
+        else
             return map.values().stream().reduce(0, Integer::sum);
-        }
     }
 
     public int getWeight(String word1, String word2) {
         Map<String, Integer> map = dictionary.get(word1);
-        if (map == null) {
+        if (map == null)
             return 0;
-        } else {
+        else
             return map.getOrDefault(word2, 0);
-        }
     }
 
     public Set<String> getConnections(String word1) {
         Map<String, Integer> map = dictionary.get(word1);
-        if (map == null) {
+        if (map == null)
             return Collections.emptySet();
-        } else {
+        else
             return map.keySet();
-        }
     }
 
     public Set<String> getWords() {
