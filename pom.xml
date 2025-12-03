@@ -4,9 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.km</groupId>
-    <artifactId>test</artifactId>
-    <version>shit-spitter</version>
-    <name>test</name>
+    <artifactId>shit-spitter</artifactId>
+    <version>1.0</version>
+    <name>shit-spitter</name>
 
     <dependencies>
 
@@ -27,6 +27,18 @@
                 <configuration>
                     <source>23</source>
                     <target>23</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.km.ss.Main</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>

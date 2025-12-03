@@ -2,6 +2,6 @@ package com.km.ss;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.print("OK");
+        System.out.println("OK");
     }
 }

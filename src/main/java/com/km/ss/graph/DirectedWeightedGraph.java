@@ -2,7 +2,7 @@ package com.km.ss.graph;
 
 import java.util.*;
 
-public class DirectedGraph {
+public class DirectedWeightedGraph {
     private final Map<String, Map<String, Integer>> dictionary = new HashMap<>();
 
     public void addConnection(String word1, String word2) {
