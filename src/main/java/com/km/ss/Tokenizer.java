@@ -12,19 +12,19 @@ public class Tokenizer {
 
         output.add(START);
 
-        for (int i = 0; i < input.size(); i++) {
-            if (input.get(i).equals(".")) {
+        for (String s : input) {
+            if (s.equals(".")) {
                 output.add(END);
                 output.add(START);
                 continue;
             }
 
-            if (input.get(i).endsWith(".")) {
-                output.add(input.get(i).substring(0, input.get(i).length() - 1));
+            if (s.endsWith(".")) {
+                output.add(s.substring(0, s.length() - 1));
                 output.add(END);
                 output.add(START);
             } else
-                output.add(input.get(i));
+                output.add(s);
         }
 
         if (output.getLast().equals(START))
@@ -41,16 +41,16 @@ public class Tokenizer {
     public static List<String> detokenize(List<String> input) {
         List<String> output = new ArrayList<>();
 
-        for (int i = 0; i < input.size(); i++) {
-            if (input.get(i).equals(START))
+        for (String s : input) {
+            if (s.equals(START))
                 continue;
 
-            if (input.get(i).equals(END)) {
+            if (s.equals(END)) {
                 output.set(output.size() - 1, output.get(output.size() - 1) + ".");
                 continue;
             }
 
-            output.add(input.get(i));
+            output.add(s);
         }
 
         return output;
