@@ -19,4 +19,8 @@ public class DirectedGraphTest {
     @Test
     public void getConnections() {
     }
+
+    @Test
+    public void getWords() {
+    }
 }

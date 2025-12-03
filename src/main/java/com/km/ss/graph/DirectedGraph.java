@@ -43,4 +43,8 @@ public class DirectedGraph {
             return map.keySet();
         }
     }
+
+    public Set<String> getWords() {
+        return dictionary.keySet();
+    }
 }
