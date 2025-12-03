@@ -16,13 +16,14 @@ public class Generator {
         return graph;
     }
 
-    public static List<String> graphToList(DirectedWeightedGraph graph, String start, int size) {
+    public static List<String> graphToList(DirectedWeightedGraph graph, String start, int size, String marker) {
         List<String> output = new ArrayList<>();
 
+        int sizeCount = 0;
         String lastWord = start;
         output.add(lastWord);
 
-        while (output.size() < size) {
+        while (sizeCount < size) {
             List<String> connections = List.copyOf(graph.getConnections(lastWord));
             int count = graph.getCount(lastWord);
             int random = new Random().nextInt(count);
@@ -35,6 +36,9 @@ public class Generator {
                     break;
                 }
             }
+
+            if(lastWord.equals(marker))
+                sizeCount++;
 
             output.add(lastWord);
         }
